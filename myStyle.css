@@ -1,0 +1,28 @@
+
+/* Center by default */
+* {
+    text-align: center;
+    background-color: black;
+
+    color: whitesmoke;
+  }
+
+.parallax {
+  /* The image used */
+  background-image: url("./resources/spiritanimalicon.png");
+
+  /* Set a specific height */
+  height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+
+.button {
+    background-image: url(".resources/ButtonBackground.png");
+    background-size: contain;
+}

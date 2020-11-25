@@ -1,0 +1,17 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "A model for a simple generic quiz featuring multiple choice answers",
+  "main": "quiz.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "quiz"
+  ],
+  "author": "Emma Davison Kelley",
+  "license": "ISC"
+}
