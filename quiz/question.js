@@ -3,60 +3,35 @@
  * Generates a model of a question
  * Part of the Quiz Model
  */
-
+const {Answer} = require("./answer.js");
 
 class Question {
 
-    // Text presented to user
-    _questionText;
+    
     get questionText(){ return this._questionText}
     set questionText(text){ this._questionText = text}
 
     // Category question belongs in
-    _category;
     get category(){ return this._category}
     set category(cat){ this._category = cat}
-
-    // Set of answers for the question
-    answers = [];
 
     // Image file associated with question
     // may default to category image
     // Note: slight change from java version, path instead of Image object
-    _image = undefined;
     get image(){ return this._image}
     set image(path){ this._image = path}
 
     //Title of the question
-    _title;
     get title(){ return this._title}
     set title(string){ this.title = string}
 
-    //Boolean indicating whether question has been answered
-    answered = false;
-    
+    //Return collection of answers
+    get answers(){return this._answers}
+
     //Answer that was selected
     _selectedAnswer = undefined;
     get selectedAnswer(){ return this._selectedAnswer}
 
-
-    //-------  Constructors --------
-
-    //Base constructor, should never be used
-    // constructor(){
-    //     this.image = null;
-    //     this.title("bullshit title");
-    // }
-
-    // /**
-    //  * Question Text only constructor
-    //  * @param {string} questionText 
-    //  */
-    // constructor(questionText){
-    //     this.image = null;
-    //     this.title = null;
-    //     this.questionText(questionText);
-    // }
 
     /**
      * Full Constructor
@@ -65,9 +40,30 @@ class Question {
      * @param {string} questionText 
      */
     constructor(imgPath, title, questionText){
-        this.image(imgPath);
-        this.title(title);
-        this.questionText(questionText);
+
+        // Text presented to user
+        this._questionText = questionText;
+
+        // Category question belongs in
+        this._category = undefined;
+
+        // Set of answers for the question
+        this._answers = [];
+
+        // Image file associated with question
+        // may default to category image
+        // Note: slight change from java version, path instead of Image object
+        this._image = imgPath;
+
+        //Title of the question
+        this._title = title;
+
+        //Boolean indicating whether question has been answered
+        this._answered = false;
+
+        //Answer that was selected
+        this._selectedAnswer = undefined;
+
     }
 
     /**
@@ -79,10 +75,10 @@ class Question {
     addAnswer(answerText, weight){
         //TODO: Verfication test of weight and whether answers array exists
         //Create new answer
-        const answer = new answer();
+        const answer = new Answer(answerText,weight);
         //assign values in Answer constructor
 
-        this.answers.push(answer);
+        this._answers.push(answer);
 
     }
 

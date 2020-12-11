@@ -22,7 +22,6 @@ const {Result} = require("./result.js");
 class Quiz {
 
 
-
     // --------  Set Up Methods -------
 
     /**Blank Constructor
@@ -75,13 +74,16 @@ class Quiz {
             }
 
             //Add to the question pool
-            this.questionPool.push(question);
+            this._questionPool.push(question);
         }
 
     }
 
     get quizSize(){ return this._quizSize};
     get currentQuestion(){ return this._currentQuestion};
+
+    get questionPool(){return this._questionPool};
+
 
     //Constructor
     // constructor(file){
