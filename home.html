@@ -1,18 +1,23 @@
-<html>
+<html ng-app="spiritAnimalApp">
 <head>
+    <!-- Use AngularJS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
     <!-- Link to CSS Sheet -->
     <link rel="stylesheet" href="myStyle.css">
 
     <!-- Link to Script -->
     <!-- This only makes functions available for use in the script-->
     <!-- <script type='text/javascript' src='spiritanimal.js'></script> -->
-    <script type='module' src='spiritanimal.js'></script>
+    <!-- <script type='module' src='spiritanimal.js'></script> -->
+    <script src='spiritAnimalController.js'></script>
     <noscript>Browser does not support scripts :(</noscript>
 </head>
 
 
-<body onload= loadQuestion()>
-    <p><h1>Spirit Animal Quiz</h1></p>
+<!-- <body onload= loadQuestion()> -->
+<body ng-controller="SpiritAnimalController as spiritAnimal">
+    <p><h1>{{spiritAnimal.appTitle}}</h1></p>
 
     <div class="parallax">
         <p>This is my test area. Should be a picture here</p>  
