@@ -22,7 +22,7 @@ const quiz = new Quiz();
 console.log("Created new Quiz");
 
 for(question of quiz.questionPool){
-    console.log("\n"+question.questionText+"\n-----------------------------------------");
+    console.log("\n"+question.questionText+"\n---------------------------");
     for(ans of question.answers){
         console.log("* "+ans.text);
     }
