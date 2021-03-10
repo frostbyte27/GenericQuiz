@@ -23,7 +23,8 @@
   
 }
 
-.button {
+.button, .answer {
     background-image: url(".resources/ButtonBackground.png");
     background-size: contain;
+    margin: 5px;
 }

@@ -25,6 +25,7 @@ angular.module('spiritAnimalApp', [])
 
         this.answerQuestion = function(){
             //answer question
+            console.log("Answered question with value: ")
         }
 
         this.nextQuestion = function(){
