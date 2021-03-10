@@ -19,16 +19,16 @@
 <body ng-controller="SpiritAnimalController as spiritAnimal">
     <p><h1>{{spiritAnimal.appTitle}}</h1></p>
 
-    <div class="parallax">
+    <!-- <div class="parallax">
         <p>This is my test area. Should be a picture here</p>  
         <img id='image'>
-    </div>
+    </div> -->
     
-    
-    <!-- Hide until later -->
-    <tabs>
-        <!-- Each Pane represents a question-->
-        <pane ng-repeat="question in spiritAnimal.questions" title="question">
+
+    <!-- Attempt at a horizontal scroll of question cards -->
+    <div class="scrollset">
+         <!-- Each Pane represents a question-->
+         <pane ng-repeat="question in spiritAnimal.questions" title="question" class="card">
 
             <!-- Question Number [May remove]-->
             <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3>
@@ -50,7 +50,35 @@
             </label> -->
         </br>
         </pane>
-    </tabs>
+    </div>
+    
+    <!-- Hide until later -->
+    <!-- <tabs> -->
+        <!-- Each Pane represents a question -->
+        <!-- <pane ng-repeat="question in spiritAnimal.questions" title="question" class="card"> -->
+
+            <!-- Question Number [May remove]-->
+            <!-- <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3> -->
+            
+            <!-- Question Text -->
+            <!-- <p id="questionText" class="question">{{question.text}}</p> -->
+            
+            <!-- Set of answers-->
+            <!-- <div ng-repeat="answer in question.answers"> 
+                <button id='ansA' margin='20px' class="answer"
+                onclick="">{{answer}}</button>
+            </div>
+        -->
+
+            <!-- </div> -->
+            <!-- <label id='ansA' class="answer" ng-repeat="answer in question.answers"> 
+                <i class="demo-icon icon-cancel"></i> 
+                <input type="radio" name="answer" value="0">
+                <span id='text'>{{answer}}</span> 
+            </label> -->
+        <!-- </br> -->
+        <!-- </pane> -->
+    <!-- </tabs> -->
 </br>
     <button id='StartButton' class="button">Discover Your Spirit Animal</button>
 

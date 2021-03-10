@@ -16,6 +16,38 @@ angular.module('spiritAnimalApp', [])
             {text:'Favorite color?', 
                 answers:["merlot", "fuschia", "Blood."
                 ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
             }
         ];
 

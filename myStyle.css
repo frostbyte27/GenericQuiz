@@ -28,3 +28,43 @@
     background-size: contain;
     margin: 5px;
 }
+
+
+/* For setting up multiple columns */
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* For Scrolling Set of Question Cards */
+div.scrollset {
+  /* Important */
+  overflow: auto;
+  white-space: nowrap;
+
+  /*Regular styling*/
+  background-color: gray;
+  background-blend-mode: ;
+  /* /*opacity: 0.3; */
+}
+
+div.scrollset pane {
+  display: inline-block;
+
+  width: 150px;
+
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  opacity: 1.0;
+}
