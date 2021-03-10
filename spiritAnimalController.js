@@ -4,7 +4,34 @@ angular.module('spiritAnimalApp', [])
         //globals
         this.appTitle = 'Spirit Animal Quiz';
 
-        //getter
+        //Maintain pointer to current question
+        
+
+        //mock question set
+        this.questions = [
+            {text:'hwhy are u gay?', 
+                answers:["who says I am gay?", "die, cis scum", "Naw. I love the pussy"
+                ]
+            },
+            {text:'Favorite color?', 
+                answers:["merlot", "fuschia", "Blood."
+                ]
+            }
+        ];
+
+        this.startQuiz = function(){
+
+        }
+
+        this.answerQuestion = function(){
+            //answer question
+        }
+
+        this.nextQuestion = function(){
+
+        }
+
+
 
 
     })

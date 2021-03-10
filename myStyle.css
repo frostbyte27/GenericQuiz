@@ -9,7 +9,8 @@
 
 .parallax {
   /* The image used */
-  background-image: url("./resources/spiritanimalicon.png");
+  /* background-image: url("./resources/spiritanimalicon.png"); */
+  background-image: url("./resources/smoke-animated.gif");
 
   /* Set a specific height */
   height: 500px;
