@@ -1,30 +1,114 @@
-<html>
+<html ng-app="spiritAnimalApp">
 <head>
+    <meta charset="UTF-8">
+    <!-- Use AngularJS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
     <!-- Link to CSS Sheet -->
     <link rel="stylesheet" href="myStyle.css">
 
     <!-- Link to Script -->
+    <!-- This only makes functions available for use in the script-->
+    <!-- <script type='text/javascript' src='spiritanimal.js'></script> -->
+    <!-- <script type='module' src='spiritanimal.js'></script> -->
+    <script src='spiritAnimalController.js'></script>
+    <noscript>Browser does not support scripts :(</noscript>
 </head>
-<body>
-    <p><h1>Spirit Animal Quiz</h1></p>
 
-    <div class="parallax">
+
+<!-- <body onload= loadQuestion()> -->
+<body ng-controller="SpiritAnimalController as spiritAnimal">
+    <p><h1>{{spiritAnimal.appTitle}}</h1></p>
+
+    <!-- <div class="parallax">
         <p>This is my test area. Should be a picture here</p>  
+        <img id='image'>
+    </div> -->
+    
+    <!-- New attempt at a card slider -->
+    <div class="container">
+        <!-- Slider Box -->
+        <div class="box">
+            <p class="marvel"></p>
+            <!-- Model -->
+            <img src="./resources/Wolf/wolf_gray.png" class="model">
+            <!-- Details -->
+            <div class="details">
+                <p>Derp Derpity derp derp derp</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Attempt at a horizontal scroll of question cards -->
+    <div class="scrollset">
+         <!-- Each Pane represents a question-->
+         <pane ng-repeat="question in spiritAnimal.questions" title="question" class="card">
+
+            <!-- Question Number [May remove]-->
+            <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3>
+            
+            <!-- Question Text -->
+            <p id="questionText" class="question">{{question.text}}</p>
+            
+            <!-- Set of answers-->
+            <div ng-repeat="answer in question.answers">
+                <button id='ansA' margin='20px' class="answer"
+                onclick="">{{answer}}</button>
+            </div>
+
+            </div>
+            <!-- <label id='ansA' class="answer" ng-repeat="answer in question.answers"> 
+                <i class="demo-icon icon-cancel"></i> 
+                <input type="radio" name="answer" value="0">
+                <span id='text'>{{answer}}</span> 
+            </label> -->
+        </br>
+        </pane>
     </div>
     
-    <button class="button">Discover Your Spirit Animal</button>
+    <!-- Hide until later -->
+    <!-- <tabs> -->
+        <!-- Each Pane represents a question -->
+        <!-- <pane ng-repeat="question in spiritAnimal.questions" title="question" class="card"> -->
 
+            <!-- Question Number [May remove]-->
+            <!-- <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3> -->
+            
+            <!-- Question Text -->
+            <!-- <p id="questionText" class="question">{{question.text}}</p> -->
+            
+            <!-- Set of answers-->
+            <!-- <div ng-repeat="answer in question.answers"> 
+                <button id='ansA' margin='20px' class="answer"
+                onclick="">{{answer}}</button>
+            </div>
+        -->
 
+            <!-- </div> -->
+            <!-- <label id='ansA' class="answer" ng-repeat="answer in question.answers"> 
+                <i class="demo-icon icon-cancel"></i> 
+                <input type="radio" name="answer" value="0">
+                <span id='text'>{{answer}}</span> 
+            </label> -->
+        <!-- </br> -->
+        <!-- </pane> -->
+    <!-- </tabs> -->
+</br>
+    <button id='StartButton' class="button">Discover Your Spirit Animal</button>
+
+    <!--This is copied from another quiz site-->
+    <!-- Trigger JS functions based on events, in this case "onload"-->
     <div class="qcont">
-        <h3>Question <span class="qnum">2</span> of 10</h3>
 
-        <span class="progress"><span style="width: 20%;"></span></span>
+
+        <span class="progress">
+            <span style="width: 20%;"></span></span>
 
         <span id="question-helper" style=""></span>
 
-        <p class="question" style="">I find it hard to talk about my feelings because the other person might make fun of them.</p>
-
-        <p class="anscont"><label class="answer"> <i class="demo-icon icon-cancel"></i> <input type="radio" name="answer" value="0"> <span>Not me.</span> </label><label class="answer"> <i class="demo-icon icon-cancel"></i> <input type="radio" name="answer" value="1"> <span>Describes me somewhat.</span> </label><label class="answer"> <i class="demo-icon icon-cancel"></i> <input type="radio" name="answer" value="2"> <span>Definitely me.</span> </label></p>
+            
+        </p>
 
         <p class="process">
             <span class="qnav next">
@@ -38,6 +122,8 @@
         </p>
 
     </div>
+
+    <input type="button" value="Show something dumb" onclick="display()"/>
 
 
 </body>

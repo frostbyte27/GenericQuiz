@@ -1,15 +1,94 @@
+@charset "utf-8";
 
 /* Center by default */
 * {
-    text-align: center;
-    background-color: black;
+  text-align: center;
+  background-color: black;
 
-    color: whitesmoke;
-  }
+  color: whitesmoke;
+}
+
+
+/* Basic Elements */
+body {
+  margin:0px;
+  padding:0px;
+}
+
+/* Unsorted Lists */
+ul {
+  list-style:none;
+}
+
+a {
+  text-decoration:none;
+}
+
+/* Slider Container */
+.container {
+  width:100%;
+  height:100vh;
+  background-color: green;
+  
+  display:flex;
+  justify-content:center;
+  align-items: center;
+
+}
+/* Slider Box */
+.box {
+  width:350px;
+  height:610px;
+  background-color:grey;
+  border-radius: 10px;
+  box-shadow: 2px 10px 12px rgba(0,0,0,0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 20px 10px;
+}
+
+.model {
+  height: 350px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.details p{
+  font-family: calibri;
+  font-weight: bold;
+  text-align: center;
+  color: yellow;
+}
+
+.marvel {
+  color:white;
+  font-weight: bold;
+  
+}
+
+
+
+
+
+
+
+
 
 .parallax {
   /* The image used */
-  background-image: url("./resources/spiritanimalicon.png");
+  /* background-image: url("./resources/spiritanimalicon.png"); */
+  background-image: url("./resources/smoke-animated.gif");
 
   /* Set a specific height */
   height: 500px;
@@ -22,7 +101,49 @@
   
 }
 
-.button {
+.button, .answer {
     background-image: url(".resources/ButtonBackground.png");
     background-size: contain;
+    margin: 5px;
+    box-shadow: 0 0 5px 1px red;
+}
+
+
+/* For setting up multiple columns */
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* For Scrolling Set of Question Cards */
+div.scrollset {
+  /* Important */
+  overflow: auto;
+  white-space: nowrap;
+
+  /*Regular styling*/
+  background-color: gray;
+  background-blend-mode: ;
+  /* /*opacity: 0.3; */
+}
+
+div.scrollset pane {
+  display: inline-block;
+
+  width: 150px;
+
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  opacity: 1.0;
 }

@@ -9,46 +9,17 @@ Quiz Script V 0.1
 
 //Imports from this package
 //myTestVariable =  require('question.js');
-Question = require("./question.js");
+const {Question} = require("./question.js");
 // import Question from './question';
 
-Answer = require("./answer.js");
-Category = require("./category.js");
-Result = require("./category.js");
+const {Answer} = require("./answer.js");
+const {Category} = require("./category.js");
+const {Result} = require("./result.js");
 
 
 //Quiz Object
 //TODO: implement Session object as well as Quiz
 class Quiz {
-
-    // Passive Properties ---------------------
-    //Set of all available question objects
-    //  should be loaded from XML file
-    questionPool = [];
-
-    // List of categories, also from XML
-    categories = [];
-
-    // Result Keys, defined in XML file
-    resultKeys = [];
-
-    // Set of all available result objects
-    results = [];
-
-    // Number of questions to present
-    _quizSize = undefined;
-    get quizSize(){ return this._quizSize};
-
-    // Quiz Session Properties ---------------
-    // Actual set of questions to present
-    questions = [];
-
-    // Set of unanswered questions
-    unanswered = [];
-
-    // Current question number
-    _currentQuestion = 0;
-    get currentQuestion(){ return this._currentQuestion};
 
 
     // --------  Set Up Methods -------
@@ -59,6 +30,35 @@ class Quiz {
      */
     constructor(){
         console.log("Constructing Template Quiz");
+
+         // Passive Properties ---------------------
+        //Set of all available question objects
+        //  should be loaded from XML file
+        this._questionPool = [];
+
+        // List of categories, also from XML
+        this._categories = [];
+
+        // Result Keys, defined in XML file
+        this._resultKeys = [];
+
+        // Set of all available result objects
+        this._results = [];
+
+        // Number of questions to present
+        this._quizSize = undefined;
+        
+
+        // Quiz Session Properties ---------------
+        // Actual set of questions to present
+        this._questions = [];
+
+        // Set of unanswered questions
+        this._unanswered = [];
+
+        // Current question number
+        this._currentQuestion = 0;
+    
 
         let categories = ['Category A', 'Category B', 'Category C', 'Category D'];
         //Generate twenty test questions
@@ -74,10 +74,16 @@ class Quiz {
             }
 
             //Add to the question pool
-            this.questionPool.push(question);
+            this._questionPool.push(question);
         }
 
     }
+
+    get quizSize(){ return this._quizSize};
+    get currentQuestion(){ return this._currentQuestion};
+
+    get questionPool(){return this._questionPool};
+
 
     //Constructor
     // constructor(file){
@@ -162,4 +168,7 @@ class Quiz {
     }
 }
 
-module.export = {Quiz};
+module.exports = {Quiz};
+//export default Quiz;
+
+// export {Quiz}
