@@ -45,4 +45,4 @@
      }
  }
 
- module.export = Result;
+ module.exports = {Result};

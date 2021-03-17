@@ -68,4 +68,4 @@
 
  }
 
- module.export = Category;
+ module.exports = {Category};
