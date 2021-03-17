@@ -5,13 +5,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
     <!-- Link to CSS Sheet -->
-    <link rel="stylesheet" href="myStyle.css">
+    <link rel="stylesheet" href="style/myStyle.css">
 
-    <!-- Link to Script -->
+    <!-- JQuery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <!-- Link to lightSlider -->
+    <script type="text/javascript" src="js/lightslider.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    <!-- <script src="node_modules/jquery/dist/jquery.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="style/lightslider.css">
+
+    <!-- Link to Controller Script -->
     <!-- This only makes functions available for use in the script-->
     <!-- <script type='text/javascript' src='spiritanimal.js'></script> -->
     <!-- <script type='module' src='spiritanimal.js'></script> -->
-    <script src='spiritAnimalController.js'></script>
+    <script src='js/spiritAnimalController.js'></script>
     <noscript>Browser does not support scripts :(</noscript>
 </head>
 
@@ -27,18 +36,57 @@
     
     <!-- New attempt at a card slider -->
     <div class="container">
-        <!-- Slider Box -->
-        <div class="box">
-            <p class="marvel"></p>
-            <!-- Model -->
-            <img src="./resources/Wolf/wolf_gray.png" class="model">
-            <!-- Details -->
-            <div class="details">
-                <p>Derp Derpity derp derp derp</p>
-            </div>
 
-        </div>
+        <!-- Unsorted list contains the cards-->
+        <ul id="lightSlider">
+
+            <!-- Repeat items using Angular-->
+            <li ng-repeat="question in spiritAnimal.questions" class="qCard">
+                <!-- Slider Box -->
+
+                <pane  title="question" class="card">
+
+                    <!-- Question Number [May remove]-->
+                    <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3>
+                    
+                    <!-- Question Text -->
+                    <p id="questionText" class="question">{{question.text}}</p>
+                    
+                    <!-- Set of answers-->
+                    <div ng-repeat="answer in question.answers">
+                        <button id='ansA' margin='20px' class="answer"
+                        onclick="">{{answer}}</button>
+                    </div>
+        
+                    
+                </br>
+                </pane>
+
+
+                <!-- <div ng-repeat="question in spiritAnimal.questions" title="question" class="card">
+                    box
+                    <p class="marvel">Marvel</p> -->
+                    <!-- Model -->
+                    <!-- <img src="./resources/Wolf/wolf_gray.png" class="model">
+                    Image should be here -->
+                    <!-- Details -->
+                    <!-- <div class="details">
+                        <p>Derp Derpity derp derp derp</p>
+                    </div>
+                </div> -->
+
+            </li>
+        </ul>
     </div>
+
+    <!-- TODO: Move this to the .js file-->
+    <!-- Run Script to make light slider work-->
+    <script type="text/javascript">
+        // [JQuery] executes when DOM fully loaded
+        $(document).ready( ()=> $("#lightSlider").lightSlider() );
+        // Calls the "lightSlider" function from lightSlider js file
+        console.log('Started lightSlider');
+    </script>
 
     <!-- Attempt at a horizontal scroll of question cards -->
     <div class="scrollset">
@@ -57,12 +105,7 @@
                 onclick="">{{answer}}</button>
             </div>
 
-            </div>
-            <!-- <label id='ansA' class="answer" ng-repeat="answer in question.answers"> 
-                <i class="demo-icon icon-cancel"></i> 
-                <input type="radio" name="answer" value="0">
-                <span id='text'>{{answer}}</span> 
-            </label> -->
+            
         </br>
         </pane>
     </div>
@@ -105,7 +148,7 @@
         <span class="progress">
             <span style="width: 20%;"></span></span>
 
-        <span id="question-helper" style=""></span>
+        <span id="question-helper"></span>
 
             
         </p>

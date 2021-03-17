@@ -4,6 +4,13 @@ HTML
 CSS
 JavaScript
 
+npm - package manager [no]
+
 Angular
 * ng modules
 
+JQuery V3.6.0 - required for use with LightSlider
+    - Installed using npm
+    - Installed directly from JQuery
+
+LightSlider - creates sliding cards

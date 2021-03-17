@@ -65,6 +65,6 @@ angular.module('spiritAnimalApp', [])
         }
 
 
-
+        
 
     })
