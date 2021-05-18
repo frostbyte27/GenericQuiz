@@ -44,10 +44,10 @@
             <li ng-repeat="question in spiritAnimal.questions" class="qCard">
                 <!-- Slider Box -->
 
-                <pane  title="question" class="card">
+                <pane  title="question" class="box">
 
                     <!-- Question Number [May remove]-->
-                    <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3>
+                    <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)+1}}</span> of {{spiritAnimal.questions.length}}</h3>
                     
                     <!-- Question Text -->
                     <p id="questionText" class="question">{{question.text}}</p>
@@ -88,27 +88,7 @@
         console.log('Started lightSlider');
     </script>
 
-    <!-- Attempt at a horizontal scroll of question cards -->
-    <div class="scrollset">
-         <!-- Each Pane represents a question-->
-         <pane ng-repeat="question in spiritAnimal.questions" title="question" class="card">
-
-            <!-- Question Number [May remove]-->
-            <h3>Question <span class="qnum">{{spiritAnimal.questions.indexOf(question)}}</span> of 10</h3>
-            
-            <!-- Question Text -->
-            <p id="questionText" class="question">{{question.text}}</p>
-            
-            <!-- Set of answers-->
-            <div ng-repeat="answer in question.answers">
-                <button id='ansA' margin='20px' class="answer"
-                onclick="">{{answer}}</button>
-            </div>
-
-            
-        </br>
-        </pane>
-    </div>
+   
     
     <!-- Hide until later -->
     <!-- <tabs> -->

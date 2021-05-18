@@ -1,25 +1,39 @@
 /*! lightslider - v1.1.6 - 2016-10-25
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2016 Sachin N; Licensed MIT */
+
+/***
+ * Annotations added by Emma Kelley for personal use.
+ * It turns out a lot of my confusion is just
+ * being unfamiliar with JQuery
+ */
+
+ // $ is the JQuery object
+ //using lightslider, I think
 (function ($, undefined) {
     'use strict';
+    //Default variables, overridden
     var defaults = {
         item: 3,
+
         autoWidth: true,
         slideMove: 1,
         slideMargin: 30,
+
         addClass: '',
         mode: 'slide',
+
         useCSS: true,
         cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',
         easing: 'linear', //'for jquery animation',//
-        speed: 400, //ms'
+        speed: 400, //ms' [I assume this is how long the animation takes]
         auto: false,
         pauseOnHover: false,
         loop: false,
         slideEndAnimation: true,
         pause: 2000,
         keyPress: false,
+
         controls: true,
         prevHtml: '',
         nextHtml: '',
@@ -48,12 +62,26 @@
         onBeforePrevSlide: function ($el, scene) {}
         /* jshint ignore:end */
     };
+
+    //Attach lightSlider function, this allows the class to actually 
+    // set it up using any array of options 
     $.fn.lightSlider = function (options) {
+
+        //Important Objects
+        //  $el
+        //  plugin
+        //  settings
+        //  refresh
+
+
+        //If no options specified, return default lightSlider
         if (this.length === 0) {
             return this;
         }
 
+        
         if (this.length > 1) {
+            //From JQuery, refers to current element?
             this.each(function () {
                 $(this).lightSlider(options);
             });
@@ -61,15 +89,19 @@
         }
 
         var plugin = {},
-            settings = $.extend(true, {}, defaults, options),
+            settings = $.extend(true, {}, defaults, options), //merges deep copy of defaults and options. Options overrides defaults
             settingsTemp = {},
-            $el = this;
+            $el = this;     //creates pointer to the current element
         plugin.$el = this;
 
+        //Begins applying settings to build the light slider
+
+        //Checks for fade mode
         if (settings.mode === 'fade') {
             settings.vertical = false;
         }
-        var $children = $el.children(),
+
+        var $children = $el.children(),  //child elements
             windowW = $(window).width(),
             breakpoint = null,
             resposiveObj = null,
@@ -87,9 +119,17 @@
             thumbWidth = 0,
             interval = null,
             isTouch = ('ontouchstart' in document.documentElement);
+        
+
+        //Build Refresh object -------------------------------
+        //Functions: 
+        // --chbreakpoint()
+        // --calSW()
+        // --calWidth(cln)
         var refresh = {};
 
-        refresh.chbreakpoint = function () {
+        //Child breakpoint - gap in child objects?
+        refresh.chbreakpoint = function () { 
             windowW = $(window).width();
             if (settings.responsive.length) {
                 var item;
@@ -149,8 +189,11 @@
             }
             return w;
         };
+
+        //Build Plugin Object
         plugin = {
             doCss: function () {
+                //Check that the CSS document supports one of the transition types
                 var support = function () {
                     var transition = ['transition', 'MozTransition', 'WebkitTransition', 'OTransition', 'msTransition', 'KhtmlTransition'];
                     var root = document.documentElement;
@@ -165,6 +208,7 @@
                 }
                 return false;
             },
+            //Check if slider should accept keypresses
             keyPress: function () {
                 if (settings.keyPress) {
                     $(document).on('keyup.lightslider', function (e) {

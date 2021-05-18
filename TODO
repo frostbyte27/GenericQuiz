@@ -4,3 +4,16 @@ TODO
 [] Load questions from question set in JSON or XML
 
 [] Asynchronously load question/answer/result data
+
+Design:
+[] Distinct States
+[] Use modules in browser environment
+[] Create and manage sessions
+[] List DOM Events
+[] Identify Critical DOM Events
+[] Separate theme from quiz engine
+
+
+Running Live:
+[] Run basic DOM script on tumtumapps.com - POC for running app
+[] Review Web Hosting arrangements - webs.com might be too expensive and restrictive
